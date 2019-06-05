@@ -7,14 +7,20 @@ from ..core.baseformat import BaseFormat
 from .. import core
 
 
-class JSONFormat(BaseFormat):
+class PrettyJSONFormat(BaseFormat):
 
-    _name = "JSON"
+    _name = "PrettyJSON"
     _extension = ".json"
-    _priority = 100
+    _priority = 0
 
     def _write_file(self, filepath, data, **options):
-        json_str = ustr(json.dumps(data, ensure_ascii=False).encode('utf8'))
+        options = {
+            "sort_keys": True,
+            "indent": 4,
+            "separators": (',', ': '),
+            "ensure_ascii": False
+        }
+        json_str = ustr(json.dumps(data, **options).encode('utf8'))
         filepath.write_text(json_str)
 
     def _read_file(self, filepath, **options):
@@ -23,4 +29,4 @@ class JSONFormat(BaseFormat):
 
 
 # register class
-core.formats.register_class(JSONFormat)
+core.formats.register_class(PrettyJSONFormat)

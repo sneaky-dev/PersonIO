@@ -1,0 +1,29 @@
+[
+  {
+    "first_name": "Tim",
+    "last_name": "Lehr",
+    "street": "Uferstr. 8",
+    "city": "Haiger",
+    "zip": "35708",
+    "country": "DE",
+    "phone": "+49 151 61493316"
+  },
+  {
+    "first_name": "Peter",
+    "last_name": "Rabbit",
+    "street": "16/38 Driver Ave",
+    "city": "Moore Park",
+    "zip": "NSW 2021",
+    "country": "AU",
+    "phone": "+61 2 9383 4800"
+  },
+  {
+    "first_name": "Emmett",
+    "last_name": "Brickowski",
+    "street": "Ordinary Ave",
+    "city": "Bricksburg",
+    "zip": "LEGO 2014",
+    "country": "DK",
+    "phone": "+45 79 50 60 70"
+  }
+]

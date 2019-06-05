@@ -3,9 +3,15 @@ class Registry(object):
     def __init__(self, base_cls):
         self._base_cls = base_cls
         self._classes = set()
+        self._class_instances = {}
 
     def __repr__(self):
         return "<Registry, '{}' (Items: '{}')>".format(self._base_cls, len(self._classes))
+
+    def _get_instance(self, cls):
+        if cls not in self._class_instances:
+            self._class_instances[cls] = cls()
+        return self._class_instances[cls]
 
     def register_class(self, cls):
         if not issubclass(cls, self._base_cls):
@@ -21,7 +27,7 @@ class Registry(object):
                     item_value = item_value()
                 if item_value != filter_value:
                     results.remove(item)
-        return results
+        return [self._get_instance(cls) for cls in results]
 
     def get(self, **filter):
         sorted_list = sorted(self.list(**filter), key=lambda x: x.priority(), reverse=True)
