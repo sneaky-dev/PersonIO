@@ -1,0 +1,4 @@
+future==0.17.1;python_version<'3'
+pathlib2==2.3.3;python_version<'3'
+scandir==1.10.0;python_version<'3'
+six==1.12.0
