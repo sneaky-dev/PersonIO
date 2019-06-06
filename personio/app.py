@@ -2,7 +2,7 @@ from __future__ import print_function
 
 import argparse
 import six
-import core
+from . import core
 import pprint
 
 if six.PY2:
