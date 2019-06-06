@@ -13,6 +13,10 @@ class Person(OrderedDict):
         "phone",
     ]
 
+    def __repr__(self):
+        return "<Person, '{}, {}'>".format(self.get("last_name", "Invalid"),
+                                           self.get("first_name", "Invalid"))
+
     @classmethod
     def fields(cls):
         return cls._fields

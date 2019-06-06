@@ -106,7 +106,6 @@ def main():
     }
 
     command_name = kwargs.pop("command")
-    # print("Debug - ARGS:", kwargs)
     commands[command_name](**kwargs)
 
 

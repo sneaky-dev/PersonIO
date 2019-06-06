@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 # unicode string for Py2 / Py3
 from builtins import str as ustr
 
@@ -18,6 +20,10 @@ class HTMLPrinter(BasePrinter):
 
     _name = "HTML"
 
+    @property
+    def temp_filepath(self):
+        return Path.home().joinpath("tmp", "personio", "table_tmp.html")
+
     def _print_data(self, data, **options):
         # generate HTML code
         header_titles = Person.fields()
@@ -27,13 +33,12 @@ class HTMLPrinter(BasePrinter):
         html_str += '</table>'
 
         # write HTML code to file
-        filepath = Path.home().joinpath("tmp", "personio_tmp.html")
-        print("Write temp HTML file and open it in webbrowser: '{}'".format(filepath))
-        filepath.parent.mkdir(parents=True, exist_ok=True)
-        filepath.write_text(ustr(html_str))
+        print("Write temp HTML file and open it in webbrowser: '{}'".format(self.temp_filepath))
+        self.temp_filepath.parent.mkdir(parents=True, exist_ok=True)
+        self.temp_filepath.write_text(ustr(html_str))
 
         # open in webbrowser
-        webbrowser.open(filepath.as_uri())
+        webbrowser.open(self.temp_filepath.as_uri())
 
 
 # register class

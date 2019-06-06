@@ -1,3 +1,7 @@
+# unicode string for Py2 / Py3
+from builtins import str as ustr
+
+
 class Registry(object):
 
     def __init__(self, base_cls):
@@ -22,10 +26,10 @@ class Registry(object):
         results = list(self._classes)
         for item in self._classes:
             for attr, filter_value in filter.items():
-                item_value = getattr(item, attr, None)
+                item_value = getattr(item, attr, "")
                 if callable(item_value):
                     item_value = item_value()
-                if item_value != filter_value:
+                if ustr(item_value).lower() != ustr(filter_value).lower():
                     results.remove(item)
         return [self._get_instance(cls) for cls in results]
 

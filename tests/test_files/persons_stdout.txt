@@ -1,0 +1,6 @@
+Print data using 'Stdout' printer ...
+           last_name          first_name              street                city                 zip             country               phone
+============================================================================================================================================
+                Lehr                 Tim          Uferstr. 8              Haiger               35708                  DE    +49 151 61493316
+              Rabbit               Peter    16/38 Driver Ave          Moore Park            NSW 2021                  AU     +61 2 9383 4800
+          Brickowski              Emmett        Ordinary Ave          Bricksburg           LEGO 2014                  DK     +45 79 50 60 70

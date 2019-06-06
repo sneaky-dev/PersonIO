@@ -20,7 +20,7 @@ class PrettyJSONFormat(BaseFormat):
             "separators": (',', ': '),
             "ensure_ascii": False
         }
-        json_str = ustr(json.dumps(data, **options).encode('utf8'))
+        json_str = ustr(json.dumps(data, **options))
         filepath.write_text(json_str)
 
     def _read_file(self, filepath, **options):

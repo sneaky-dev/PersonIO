@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from abc import ABCMeta, abstractmethod
 from collections import Iterable
 from .person import Person
@@ -17,9 +19,6 @@ class BaseFormat(six.with_metaclass(ABCMeta, object)):
     def __init__(self, *args, **kwargs):
         if not self._name or not self._extension:
             raise ValueError("Invalid format configuration.")
-
-    def __hash__(self):  # TODO: Set hashing not working yet!
-        return hash(__file__)
 
     def __repr__(self):
         return "<{}, Name: '{}' (Ext.: '{}', Priority: {})>".format(type(self).__name__,

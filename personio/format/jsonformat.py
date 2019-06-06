@@ -14,7 +14,7 @@ class JSONFormat(BaseFormat):
     _priority = 100
 
     def _write_file(self, filepath, data, **options):
-        json_str = ustr(json.dumps(data, ensure_ascii=False).encode('utf8'))
+        json_str = ustr(json.dumps(data, ensure_ascii=False))
         filepath.write_text(json_str)
 
     def _read_file(self, filepath, **options):

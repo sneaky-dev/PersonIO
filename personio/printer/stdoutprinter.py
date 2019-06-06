@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 from ..core.person import Person
 from ..core.baseprinter import BasePrinter
 from .. import core
