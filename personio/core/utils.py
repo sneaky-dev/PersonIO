@@ -39,5 +39,5 @@ def stdout_to_file(filepath):
 
 
 def get_resource_path(rel_path):
-    root_dir = Path(__file__).parents[1]
+    root_dir = Path(__file__).parents[2]
     return root_dir.joinpath(rel_path)

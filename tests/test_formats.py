@@ -3,16 +3,16 @@ from builtins import str as ustr
 
 import unittest
 import filecmp
-import testutils
 
 from personio.core import formats as formats_registry
+from personio.core import utils
 
 
 class TestFormats(unittest.TestCase):
 
     def test_read_write(self):
-        samples_dir = testutils.get_resource_path("tests/test_files")
-        with testutils.temp_dir("rwtest") as test_dir:
+        samples_dir = utils.get_resource_path("tests/test_files")
+        with utils.temp_dir("rwtest") as test_dir:
             for file_format in formats_registry.list():
                 filename = "persons_{name}{ext}".format(name=file_format.name().lower(),
                                                         ext=file_format.extension())
