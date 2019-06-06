@@ -8,6 +8,9 @@ from .. import core
 
 
 class JSONFormat(BaseFormat):
+    """JSON file format.
+    Reads / writes JSON data.
+    """
 
     _name = "JSON"
     _extension = ".json"

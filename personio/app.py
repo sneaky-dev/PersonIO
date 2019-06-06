@@ -12,6 +12,11 @@ else:
 
 
 def _get_args():
+    """Parses and returns command line arguments.
+
+    Returns:
+        :obj:`dict`: parsed arguments
+    """
     main_parser = argparse.ArgumentParser(description="Personal data IO tool.")
     sub_parser = main_parser.add_subparsers(title="Subcommands", help="Available subcommands", dest="command")
 
@@ -42,6 +47,15 @@ def _get_args():
 
 
 def _get_format_from_filepath(filepath, preferred_format=None):
+    """Extracts filepath extension and searches for matching file format in registry.
+
+    Args:
+        filepath(:obj:`basestring`): input filepath
+        preferred_format(:obj:`str`, optional): preferred file format, e.g. "PrettyJSON"
+
+    Returns:
+        :obj:`BaseFormat`
+    """
     file_format = core.formats.get(name=preferred_format)
     if file_format:
         return file_format
@@ -54,6 +68,12 @@ def _get_format_from_filepath(filepath, preferred_format=None):
 
 
 def _run_list(**options):
+    """Prints a list of registry entries.
+    Can be filtered by the user.
+
+    Args:
+        **options(:obj:`dict`): filter_list, type
+    """
     registries = {
         "formats": core.formats,
         "printers": core.printers,
@@ -71,6 +91,14 @@ def _run_list(**options):
 
 
 def _run_write(**options):
+    """Reads an input file and writes the data to the specified output file.
+    Users can specify the format by providing additional ``options``.
+    Args:
+        **options(:obj:`dict`): input_file, output_file, input_format, output_format
+
+    Returns:
+
+    """
     input_filepath = options["input_file"]
     input_format_name = options.get("input_format")
     output_filepath = options["output_file"]
@@ -84,6 +112,14 @@ def _run_write(**options):
 
 
 def _run_print(**options):
+    """Reads an input file and displays the data based on the specified ``printer`` option.
+
+    Args:
+        **options(:obj:`dict`): input_file, output_file, input_format, output_format
+
+    Returns:
+
+    """
     printer_name = options["printer"]
     input_filepath = options["input_file"]
     input_format_name = options.get("input_format")
@@ -98,6 +134,8 @@ def _run_print(**options):
 
 
 def main():
+    """Application main function.
+    """
     kwargs = _get_args()
     commands = {
         "list": _run_list,

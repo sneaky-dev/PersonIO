@@ -6,6 +6,9 @@ from .. import core
 
 
 class StdoutPrinter(BasePrinter):
+    """Stdout table printer.
+    Prints the data as a simple table via stdout.
+    """
 
     _name = "Stdout"
 

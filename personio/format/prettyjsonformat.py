@@ -8,6 +8,9 @@ from .. import core
 
 
 class PrettyJSONFormat(BaseFormat):
+    """Alternative JSON Reader / Writer implementation.
+    Writes the data formatted more human-friendly then the default JSON format class.
+    """
 
     _name = "PrettyJSON"
     _extension = ".json"

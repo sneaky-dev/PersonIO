@@ -1,3 +1,6 @@
+"""Utility module.
+"""
+
 # unicode string for Py2 / Py3
 from builtins import str as ustr
 
@@ -15,6 +18,10 @@ else:
 
 @contextlib.contextmanager
 def temp_dir(directory_name):
+    """Context manager providing a temp directory that will be deleted on exit.
+    Args:
+        directory_name(:obj:`str`): directory name
+    """
     dir_path = Path.home().joinpath("tmp", "personio", directory_name)
     try:
         dir_path.mkdir(parents=True, exist_ok=True)
@@ -26,6 +33,11 @@ def temp_dir(directory_name):
 
 @contextlib.contextmanager
 def stdout_to_file(filepath):
+    """Context manager redirecting stdout data to a file descriptor.
+
+    Args:
+        filepath(:obj:`str`): filepath to redirect output to
+    """
     filepath_obj = Path(filepath)
     filepath_obj.parent.mkdir(parents=True, exist_ok=True)
 
@@ -39,5 +51,13 @@ def stdout_to_file(filepath):
 
 
 def get_resource_path(rel_path):
+    """Returns the absolute path to a file or directory relative to the repository root.
+
+    Args:
+        rel_path(:obj:`str`): path relative to repository root
+
+    Returns:
+        :obj:`Path`
+    """
     root_dir = Path(__file__).parents[2]
     return root_dir.joinpath(rel_path)

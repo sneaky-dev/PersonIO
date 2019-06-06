@@ -9,6 +9,11 @@ from .. import core
 
 
 class CSVFormat(BaseFormat):
+    """CSV file format.
+    Reads / Writes CSV data.
+
+    Note: CSV input data needs to have a valid header row.
+    """
 
     _name = "CSV"
     _extension = ".csv"

@@ -17,6 +17,10 @@ else:
 
 
 class HTMLPrinter(BasePrinter):
+    """HTML table output printer.
+    Generates a temporary HTML file containing the data formatted in a table.
+    Opens the file in the default webbrowser after generation.
+    """
 
     _name = "HTML"
 

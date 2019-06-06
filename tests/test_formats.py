@@ -9,8 +9,12 @@ from personio.core import utils
 
 
 class TestFormats(unittest.TestCase):
+    """Unit tests for the file format implementations.
+    """
 
     def test_read_write(self):
+        """Tests read / write for all file formats.
+        """
         samples_dir = utils.get_resource_path("tests/test_files")
         with utils.temp_dir("rwtest") as test_dir:
             for file_format in formats_registry.list():
