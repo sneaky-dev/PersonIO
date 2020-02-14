@@ -2,7 +2,7 @@ PersonIO
 =======
 [![Build Status](https://travis-ci.com/timlehr/PersonIO.svg?token=SCm6SLKCgY9E15GKSEUi&branch=master)](https://travis-ci.com/timlehr/PersonIO)
 
-Python implementation of my Animal Logic Tech Task - with a cool name! 
+Python implementation of my Tech Task - with a cool name! 
 
 ## Requirements
 
